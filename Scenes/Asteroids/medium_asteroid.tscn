@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv6fpewnvjlfy"]
+
+[ext_resource type="Texture2D" uid="uid://chs4fekn8uh2f" path="res://assets/sprites/rock-medium.png" id="1_bbuue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk8ra"]
+radius = 51.2445
+
+[node name="MediumAsteroid" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bbuue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dk8ra")

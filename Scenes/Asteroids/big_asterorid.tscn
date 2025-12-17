@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c13adlphmivom"]
+
+[ext_resource type="Texture2D" uid="uid://jn5b0wj05dei" path="res://assets/sprites/rock-big.png" id="1_mpwei"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6q2h"]
+radius = 78.4092
+
+[node name="BigAsterorid" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mpwei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e6q2h")
