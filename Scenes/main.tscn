@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://n8hht5bl3ypp"]
+
+[ext_resource type="Texture2D" uid="uid://cpmgydre6od7p" path="res://assets/sprites/background.png" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://c13adlphmivom" path="res://Scenes/Asteroids/big_asterorid.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bcbotp7twsao7" path="res://Scenes/Player/player.tscn" id="3_8gbba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(20, 659)
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(592, 319)
+texture = ExtResource("1_jjgbg")
+
+[node name="BigAsterorid" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(1004, 298)
+
+[node name="Player" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(100, 300)
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(574, -12)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="DownWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall"]
+position = Vector2(574, 9)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-10, 320)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1171, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-10, 320)
+shape = SubResource("RectangleShape2D_jjvhh")

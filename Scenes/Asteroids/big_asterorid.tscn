@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c13adlphmivom"]
+[gd_scene load_steps=4 format=3 uid="uid://c13adlphmivom"]
 
+[ext_resource type="Script" uid="uid://1ptiy7550r0q" path="res://Scenes/Asteroids/asterorid.gd" id="1_e6q2h"]
 [ext_resource type="Texture2D" uid="uid://jn5b0wj05dei" path="res://assets/sprites/rock-big.png" id="1_mpwei"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6q2h"]
 radius = 78.4092
 
 [node name="BigAsterorid" type="Area2D"]
+script = ExtResource("1_e6q2h")
+speed = 300.0
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mpwei")
