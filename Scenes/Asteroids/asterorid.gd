@@ -14,3 +14,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	position.x -= move_speed * _delta
 	rotation += rotation_speed * _delta
+
+func _on_area_entered(area: Area2D) -> void:
+	var is_the_player = area.is_in_group("player")
+	var is_a_laser = area.is_in_group("laser")
+	if is_the_player or is_a_laser:
+		queue_free()

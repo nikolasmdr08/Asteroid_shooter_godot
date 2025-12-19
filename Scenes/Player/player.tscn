@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcbotp7twsao7"]
+[gd_scene load_steps=5 format=3 uid="uid://bcbotp7twsao7"]
 
 [ext_resource type="Script" uid="uid://dyjk2wxurkdkg" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dsir3xyw5p4q" path="res://assets/sprites/ship.png" id="1_uvnfx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3d8c"]
-radius = 41.0
+radius = 51.0392
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpcdj"]
+radius = 52.0384
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_a3d8c")
 speed = 500.0
 metadata/_edit_group_ = true
@@ -18,3 +22,12 @@ texture = ExtResource("1_uvnfx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11, 0)
 shape = SubResource("CircleShape2D_a3d8c")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-10, 0)
+shape = SubResource("CircleShape2D_xpcdj")
+debug_color = Color(0.928216, 0.173391, 0.513705, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
