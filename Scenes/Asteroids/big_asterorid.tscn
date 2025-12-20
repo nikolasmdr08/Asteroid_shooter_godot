@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c13adlphmivom"]
 
-[ext_resource type="Script" uid="uid://1ptiy7550r0q" path="res://Scenes/Asteroids/asterorid.gd" id="1_e6q2h"]
+[ext_resource type="Script" uid="uid://1ptiy7550r0q" path="res://scenes/asteroids/asterorid.gd" id="1_e6q2h"]
 [ext_resource type="Texture2D" uid="uid://jn5b0wj05dei" path="res://assets/sprites/rock-big.png" id="1_mpwei"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6q2h"]
@@ -12,6 +12,7 @@ min_move_speed = 200.0
 max_move_speed = 400.0
 min_rotation_speed = 1.0
 max_rotation_speed = 3.0
+reward = 5
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://n8hht5bl3ypp"]
+[gd_scene load_steps=11 format=3 uid="uid://n8hht5bl3ypp"]
 
 [ext_resource type="Texture2D" uid="uid://cpmgydre6od7p" path="res://assets/sprites/background.png" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://c13adlphmivom" path="res://Scenes/Asteroids/big_asterorid.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://1hvin4mugfrt" path="res://Scenes/Laser/laser.tscn" id="3_6bp64"]
-[ext_resource type="PackedScene" uid="uid://bcbotp7twsao7" path="res://Scenes/Player/player.tscn" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://c8t5k22dbyq44" path="res://Scenes/asteroid_spawner.gd" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://dq7vkrb4gju3t" path="res://Scenes/Asteroids/small_asteroid.tscn" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://dv6fpewnvjlfy" path="res://Scenes/Asteroids/medium_asteroid.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://c13adlphmivom" path="res://scenes/asteroids/big_asterorid.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://1hvin4mugfrt" path="res://scenes/laser/laser.tscn" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bcbotp7twsao7" path="res://scenes/player/player.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://c8t5k22dbyq44" path="res://scenes/asteroid_spawner/asteroid_spawner.gd" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dq7vkrb4gju3t" path="res://scenes/asteroids/small_asteroid.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://dv6fpewnvjlfy" path="res://scenes/asteroids/medium_asteroid.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://slosun2rp684" path="res://scenes/ui/hud/hud.tscn" id="8_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(1152, 20)
@@ -61,5 +62,10 @@ asteroids_list = Array[PackedScene]([ExtResource("2_bo1nx"), ExtResource("6_6bp6
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("8_344ge")]
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Timer" to="AsteroidSpawner" method="_on_timer_timeout"]

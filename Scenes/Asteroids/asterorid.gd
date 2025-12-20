@@ -4,8 +4,11 @@ extends Area2D
 @export var max_move_speed: float
 @export var min_rotation_speed: float
 @export var max_rotation_speed: float
+
+@export var reward: int
 var move_speed: float
 var rotation_speed: float
+
 
 func _ready() -> void:
 	move_speed = randf_range(min_move_speed, max_move_speed)
@@ -18,5 +21,7 @@ func _process(_delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	var is_the_player = area.is_in_group("player")
 	var is_a_laser = area.is_in_group("laser")
+	if is_a_laser:
+		GameManager.add_score(reward)
 	if is_the_player or is_a_laser:
 		queue_free()
