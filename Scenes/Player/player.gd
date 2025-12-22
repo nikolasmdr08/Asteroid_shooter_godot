@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var laser_scene: PackedScene
 
 func _physics_process(_delta: float) -> void:
+	if GameManager.is_game_over:
+		return
 	if Input.is_action_just_pressed("fire"):
 		create_laser()
 	process_inputs()
@@ -23,4 +25,5 @@ func create_laser():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("asteroids"):
+		GameManager.set_is_game_over(true)
 		queue_free()
