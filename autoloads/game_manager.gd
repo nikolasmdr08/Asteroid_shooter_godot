@@ -3,7 +3,7 @@ extends Node
 var score = 0
 var is_game_over = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_game_over and Input.is_action_just_pressed("fire"):
 		restart_game()
 

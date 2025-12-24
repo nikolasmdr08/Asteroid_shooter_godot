@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsiutauaky2b"]
+
+[ext_resource type="Script" uid="uid://c8t5k22dbyq44" path="res://scenes/spaawners/asteroid_spawner.gd" id="1_ldrtl"]
+[ext_resource type="PackedScene" uid="uid://c13adlphmivom" path="res://scenes/asteroids/big_asterorid.tscn" id="2_gd6o7"]
+[ext_resource type="PackedScene" uid="uid://dv6fpewnvjlfy" path="res://scenes/asteroids/medium_asteroid.tscn" id="3_5bunj"]
+[ext_resource type="PackedScene" uid="uid://dq7vkrb4gju3t" path="res://scenes/asteroids/small_asteroid.tscn" id="4_vqg6p"]
+
+[node name="AsteroidSpawner" type="Marker2D"]
+script = ExtResource("1_ldrtl")
+min_y = 90.0
+max_y = 550.0
+asteroids_list = Array[PackedScene]([ExtResource("2_gd6o7"), ExtResource("3_5bunj"), ExtResource("4_vqg6p")])
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

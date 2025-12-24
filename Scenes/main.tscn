@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://n8hht5bl3ypp"]
+[gd_scene load_steps=12 format=3 uid="uid://n8hht5bl3ypp"]
 
 [ext_resource type="Texture2D" uid="uid://cpmgydre6od7p" path="res://assets/sprites/background.png" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://c13adlphmivom" path="res://scenes/asteroids/big_asterorid.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://1hvin4mugfrt" path="res://scenes/laser/laser.tscn" id="3_6bp64"]
 [ext_resource type="PackedScene" uid="uid://bcbotp7twsao7" path="res://scenes/player/player.tscn" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://c8t5k22dbyq44" path="res://scenes/asteroid_spawner/asteroid_spawner.gd" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://dq7vkrb4gju3t" path="res://scenes/asteroids/small_asteroid.tscn" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://dv6fpewnvjlfy" path="res://scenes/asteroids/medium_asteroid.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://vsiutauaky2b" path="res://scenes/spaawners/asteroid_spawner.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bwo5god80e00l" path="res://scenes/spaawners/power_up_spawner.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://slosun2rp684" path="res://scenes/ui/hud/hud.tscn" id="8_344ge"]
 [ext_resource type="PackedScene" uid="uid://cs568m0w4nkpt" path="res://scenes/ui/gameover/game_over_ui.tscn" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://dpg37xyiav068" path="res://scenes/game_over_trigger.gd" id="10_choun"]
@@ -58,15 +56,10 @@ position = Vector2(1171, -1)
 position = Vector2(-10, 320)
 shape = SubResource("RectangleShape2D_jjvhh")
 
-[node name="AsteroidSpawner" type="Marker2D" parent="."]
-position = Vector2(1388, 318)
-script = ExtResource("4_jjvhh")
-min_y = 90.0
-max_y = 550.0
-asteroids_list = Array[PackedScene]([ExtResource("2_bo1nx"), ExtResource("6_6bp64"), ExtResource("5_21xkr")])
+[node name="PowerUpSpawner" parent="." instance=ExtResource("4_tipki")]
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="AsteroidSpawner" parent="." instance=ExtResource("4_o6xl0")]
+position = Vector2(1388, 318)
 
 [node name="GameOverTrigger" type="Area2D" parent="."]
 script = ExtResource("10_choun")
@@ -85,5 +78,4 @@ metadata/_edit_lock_ = true
 [node name="GameOverUI" parent="UILayer" instance=ExtResource("9_85g3d")]
 visible = false
 
-[connection signal="timeout" from="Timer" to="AsteroidSpawner" method="_on_timer_timeout"]
 [connection signal="area_entered" from="GameOverTrigger" to="GameOverTrigger" method="_on_area_entered"]

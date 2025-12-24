@@ -3,7 +3,9 @@ extends Marker2D
 @export var min_y:float
 @export var max_y:float
 @export var asteroids_list: Array[PackedScene]
-@onready var timer: Timer = $"../Timer"
+@onready var timer: Timer = $Timer
+
+var instances = 1
 
 func create_asteriod() -> void:
 	if GameManager.is_game_over:
@@ -15,4 +17,5 @@ func create_asteriod() -> void:
 	asteroid_instance.global_position.y = random_y
 	
 func _on_timer_timeout() -> void:
-	create_asteriod()
+	for i in range(instances):
+		create_asteriod()
